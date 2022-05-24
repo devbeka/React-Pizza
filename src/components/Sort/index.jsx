@@ -38,7 +38,8 @@ const Sort = () => {
               <li
                 onClick={() => onSelectedSortName(i)}
                 className={activeSort === i ? 'active' : ''}
-                key={i}>
+                key={i}
+              >
                 {sort}
               </li>
             ))}
