@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const Categories = () => {
-  const [activeCategory, setActiveCategory] = useState(0)
+const Categories = ({activeCategory, onChangeCategory}) => {
 
   const cotegories = [
     'Все',
@@ -19,7 +18,7 @@ const Categories = () => {
           {cotegories.map((cotegory, i) => (
             <li
               key={cotegory}
-              onClick={() =>  setActiveCategory(i)}
+              onClick={() =>  onChangeCategory(i)}
               className={activeCategory === i ? 'active' : ''}>
               {cotegory}
             </li>
