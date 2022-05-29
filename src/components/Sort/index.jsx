@@ -1,15 +1,24 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { changeSort } from '../../redux/slices/filterSlice'
 
-const Sort = ({ activeSort, onChangeSort }) => {
+const sorts = [
+  { name: 'популярности', sortProperty: 'rating' },
+  { name: 'убыванию цены', sortProperty: 'price' },
+  { name: 'возрастанию цены', sortProperty: '-price' },
+  { name: 'алфовиту (А-Я)', sortProperty: 'alphabet' },
+  { name: 'алфовиту (Я-А)', sortProperty: '-alphabet' },
+]
+
+const Sort = () => {
+  const dispatch = useDispatch()
+  const sort = useSelector((store) => store.filterSlice.sort)
+
   const [visible, setVisible] = useState(false)
-  const sorts = [
-    { name: 'популярности', sortProperty: 'rating' },
-    { name: 'убыванию цены', sortProperty: 'price⏯️' },
-    { name: 'возрастанию цены', sortProperty: '-price' },
-    { name: 'алфовиту (А-Я)', sortProperty: 'alphabet' },
-    { name: 'алфовиту (Я-А)', sortProperty: '-alphabet' },
-  ]
 
+  const onClickItem = (sort) => {
+    dispatch(changeSort(sort))
+  }
   const onToggleVisible = () => {
     setVisible(!visible)
   }
@@ -30,18 +39,16 @@ const Sort = ({ activeSort, onChangeSort }) => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span>{activeSort.name}</span>
+        <span>{sort.name}</span>
       </div>
       {visible && (
         <div className="sort__popup">
           <ul>
             {sorts.map((sort, i) => (
               <li
-                onClick={() => onChangeSort(sort)}
-                className={
-                  activeSort.sortProperty === sort.sortProperty ? 'active' : ''
-                }
-                key={i} >
+                onClick={() => onClickItem(sort)}
+                className={sort.sortProperty === sort.sortProperty ? 'active' : ''}
+                key={i}>
                 {sort.name}
               </li>
             ))}

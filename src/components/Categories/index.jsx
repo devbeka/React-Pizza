@@ -16,8 +16,8 @@ const Categories = ({activeCategory, onChangeCategory}) => {
       <div className="categories">
         <ul>
           {cotegories.map((cotegory, i) => (
-            <li
-              key={cotegory}
+            <li 
+              key={i}
               onClick={() =>  onChangeCategory(i)}
               className={activeCategory === i ? 'active' : ''}>
               {cotegory}
