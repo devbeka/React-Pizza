@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
 import Categories from '../../components/Categories'
 import Sort from '../../components//Sort'
 import PizzaBlock from '../../components//Pizza/PizzaBlock'
@@ -29,12 +30,12 @@ const Home = () => {
     const activeCategory = category > 0 ? `category=${category}` : ''
     const search = searchValue ? `&search=${searchValue}` : ''
 
-    fetch(
-      `https://628ceaf83df57e983ed8a66a.mockapi.io/pizzas?${activeCategory}&sortBy=${sortBy}&order=${order}${search}`
-    )
-      .then((response) => response.json())
-      .then((jsonPizzas) => {
-        setPizzas(jsonPizzas)
+    axios
+      .get(
+        `https://628ceaf83df57e983ed8a66a.mockapi.io/pizzas?${activeCategory}&sortBy=${sortBy}&order=${order}${search}`
+      )
+      .then((response) => {
+        setPizzas(response.data)
         setIsLoading(false)
       })
   }, [category, sortType, searchValue])
@@ -47,7 +48,8 @@ const Home = () => {
       <div className="content__top">
         <Categories
           activeCategory={category}
-          onChangeCategory={onChangeCategory} />
+          onChangeCategory={onChangeCategory}
+        />
         <Sort />
       </div>
       <h2 className="content__title">Все пиццы</h2>
