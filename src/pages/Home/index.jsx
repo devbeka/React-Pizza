@@ -5,7 +5,6 @@ import Categories from '../../components/Categories'
 import Sort from '../../components//Sort'
 import PizzaBlock from '../../components//Pizza/PizzaBlock'
 import Skeleton from '../../components//Pizza/PizzaBlock/skeleton'
-import Pagination from '../../components/Pagination'
 import { SearchContext } from '../../App'
 import { changeCategory } from '../../redux/slices/filterSlice'
 
@@ -54,7 +53,6 @@ const Home = () => {
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">{isLoading ? skeleton : items}</div>
-      <Pagination />
     </div>
   )
 }
