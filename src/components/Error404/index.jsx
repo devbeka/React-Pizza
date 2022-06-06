@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './styles.module.scss'
 
 const Error404 = () => {
@@ -11,6 +12,9 @@ const Error404 = () => {
       <p className={styles.description}>
         К сожелению данная страница отсуствует в нашем интернет-магазине
       </p>
+       <Link to='/' className={styles.toHome}>
+       <span>Перейти на главную страницу</span>
+       </Link>
     </div>
   )
 }

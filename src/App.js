@@ -1,8 +1,9 @@
 import React, { createContext, useState } from 'react'
 import { Route, Routes } from 'react-router'
+import Error404 from './components/Error404'
 import Header from './components/Header'
 import Home from './pages/Home'
-import NotFound from './pages/NotFound'
+
 import Cart from './pages/Cart'
 import './assets/scss/app.scss'
 
@@ -19,7 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<Error404 />} />
           </Routes>
         </div>
       </SearchContext.Provider>

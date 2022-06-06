@@ -24,14 +24,14 @@ const cartSlice = createSlice({
       }, 0)
     },
     removePizza: (state, action) => {
-      state.pizzas = state.pizzas.filter((pizza) => pizza.id === action.payload)
+      state.pizzas = state.pizzas.filter((pizza) => pizza.id !== action.payload)
     },
     minusPizza: (state, action) => {
       const findPizza = state.pizzas.find(
         (pizza) => pizza.id === action.payload.id
       )
-      if(findPizza){
-        findPizza.count --
+      if (findPizza) {
+        findPizza.count--
       }
     },
     clearPizzas: (state) => {
@@ -43,5 +43,5 @@ const cartSlice = createSlice({
 
 const { actions, reducer } = cartSlice
 
-export const { addPizza, removePizza,minusPizza, clearPizzas } = actions
+export const { addPizza, removePizza, minusPizza, clearPizzas } = actions
 export default reducer
