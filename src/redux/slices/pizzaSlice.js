@@ -14,7 +14,7 @@ export const fetchPizzas = createAsyncThunk(
 
 const initialState = {
   pizzas: [],
-  status: 'loading'
+  status: 'loading',
 }
 
 const pizzaSlice = createSlice({
@@ -41,6 +41,8 @@ const pizzaSlice = createSlice({
 })
 
 const { reducer, actions } = pizzaSlice
+
+export const selectPizzaData = (state) => state.pizzaSlice
 
 export const { setPizzas } = actions
 export default reducer

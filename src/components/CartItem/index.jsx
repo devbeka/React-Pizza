@@ -11,10 +11,8 @@ const CartItem = ({ name, id, imageUrl, price, count, type, size }) => {
     dispatch(addPizza({ id }))
   }
   const onClickMinus = () => {
-    if (count > 0) {
+    if (count > 1) {
       dispatch(minusPizza({ id }))
-    } else {
-      dispatch(removePizza(id))
     }
   }
   const onClickRemove = () => {

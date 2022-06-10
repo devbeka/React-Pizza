@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import cart from '../../assets/img/cart.svg'
 import CartItem from '../../components/CartItem'
-import { clearPizzas } from '../../redux/slices/cartSlice'
+import { clearPizzas, selectCart } from '../../redux/slices/cartSlice'
 import CartEmpty from '../../components/CartEmpty'
 import arrowLeft from '../../assets/img/arrow-left.svg'
 import clear from '../../assets/img/trash-icon.svg'
 
 const Cart = () => {
   const dispatch = useDispatch()
-  const { total, pizzas } = useSelector((state) => state.cartSlice)
+  const { total, pizzas } = useSelector(selectCart)
   const count = pizzas.reduce((sum, pizza) => sum + pizza.count, 0)
 
   const onClickClear = () => {
