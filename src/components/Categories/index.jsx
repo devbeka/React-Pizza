@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles.scss'
 
 const Categories = ({activeCategory, onChangeCategory}) => {
 
@@ -16,7 +17,7 @@ const Categories = ({activeCategory, onChangeCategory}) => {
       <div className="categories">
         <ul>
           {cotegories.map((cotegory, i) => (
-            <li 
+            <li
               key={i}
               onClick={() =>  onChangeCategory(i)}
               className={activeCategory === i ? 'active' : ''}>

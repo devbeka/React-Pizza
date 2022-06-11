@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import cartEmpty from '../../assets/img/empty-cart.png'
+import './styles.scss'
 
 const CartEmpty = () => {
   return (
     <>
-      <div className="cart cart--empty">
+      <div className="empty">
         <h2>
           Корзина пустая <span>😕</span>
         </h2>

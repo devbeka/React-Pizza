@@ -7,6 +7,7 @@ import { clearPizzas, selectCart } from '../../redux/slices/cartSlice'
 import CartEmpty from '../../components/CartEmpty'
 import arrowLeft from '../../assets/img/arrow-left.svg'
 import clear from '../../assets/img/trash-icon.svg'
+import './styles.scss'
 
 const Cart = () => {
   const dispatch = useDispatch()

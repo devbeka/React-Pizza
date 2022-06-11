@@ -1,0 +1,36 @@
+.pizza {
+  display: flex;
+  justify-content: space-between;
+  img {
+    width: 300px;
+    height: 300px;
+  }
+  &__info {
+    width: 450px;
+    h2 {
+      margin-bottom: 15px;
+    }
+    h4 {
+      margin-top: 40px;
+    }
+  }
+}
+
+.toHome {
+  padding: 12px 0 14px;
+  width: 150px;
+  margin: 0 auto;
+  display: block;
+  font-weight: 600;
+  font-size: 18px;
+  background-color: black;
+  border-radius: 30px;
+  text-align: center;
+  span {
+    color: #fff;
+  }
+  &:hover {
+    background-color: #fe5f1e;
+    transition: 0.3s;
+  }
+}

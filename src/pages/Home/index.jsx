@@ -4,9 +4,10 @@ import Categories from '../../components/Categories'
 import Sort from '../../components//Sort'
 import PizzaBlock from '../../components//Pizza/PizzaBlock'
 import Skeleton from '../../components//Pizza/PizzaBlock/skeleton'
-import { SearchContext } from '../../App'
 import { changeCategory, selectFilter } from '../../redux/slices/filterSlice'
 import { fetchPizzas, selectPizzaData } from '../../redux/slices/pizzaSlice'
+
+import './styles.scss'
 
 const Home = () => {
   const dispatch = useDispatch()

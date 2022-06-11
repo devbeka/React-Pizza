@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeSort, selectSort } from '../../redux/slices/filterSlice'
+import './styles.scss'
 
  export const sorts = [
   { name: 'популярности', sortProperty: 'rating' },

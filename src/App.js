@@ -6,18 +6,20 @@ import Home from './pages/Home'
 
 import Cart from './pages/Cart'
 import './assets/scss/app.scss'
+import AboutPizza from './pages/AboutPizza'
 
 function App() {
   return (
     <div className="wrapper">
-        <Header />
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="*" element={<Error404 />} />
-          </Routes>
-        </div>
+      <Header />
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/pizza/:id" element={<AboutPizza />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </div>
     </div>
   )
 }

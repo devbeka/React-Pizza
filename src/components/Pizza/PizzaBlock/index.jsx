@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { addPizza, selectCartPizzaById } from '../../../redux/slices/cartSlice'
+import './styles.scss'
 
 const typeNames = ['тонкое', 'традиционное']
 
@@ -11,8 +13,9 @@ const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }) => {
   const [activeType, setActiveType] = useState(0)
   const [activeSize, setActiveSize] = useState(0)
 
-  const addedCount = cartItem ? cartItem.count : 0
+  const [activeModal, setActiveModal] = useState(false)
 
+  const addedCount = cartItem ? cartItem.count : 0
 
   const onClickAdd = () => {
     const pizza = {
@@ -29,8 +32,10 @@ const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }) => {
   return (
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
-        <h4 className="pizza-block__title">{name}</h4>
+        <Link to={`/pizza/${id}`}>
+          <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+          <h4 className="pizza-block__title">{name}</h4>
+        </Link>
         <div className="pizza-block__selector">
           <ul>
             {types.map((typeI) => (
