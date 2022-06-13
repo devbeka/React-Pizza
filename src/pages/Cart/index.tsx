@@ -1,18 +1,18 @@
-import React from 'react'
+import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import cart from '../../assets/img/cart.svg'
 import CartItem from '../../components/CartItem'
 import { clearPizzas, selectCart } from '../../redux/slices/cartSlice'
 import CartEmpty from '../../components/CartEmpty'
 import arrowLeft from '../../assets/img/arrow-left.svg'
 import clear from '../../assets/img/trash-icon.svg'
+import cart from '../../assets/img/cart.svg'
 import './styles.scss'
 
-const Cart = () => {
+const Cart: FC = () => {
   const dispatch = useDispatch()
   const { total, pizzas } = useSelector(selectCart)
-  const count = pizzas.reduce((sum, pizza) => sum + pizza.count, 0)
+  const count = pizzas.reduce((sum: number, pizza: any) => sum + pizza.count, 0)
 
   const onClickClear = () => {
     dispatch(clearPizzas())
@@ -36,7 +36,7 @@ const Cart = () => {
           </button>
         </div>
         <div className="content__items">
-          {pizzas.map((pizza) => (
+          {pizzas.map((pizza: any) => (
             <CartItem key={pizza.id} {...pizza} />
           ))}
         </div>
@@ -53,7 +53,7 @@ const Cart = () => {
             <Link
               to="/"
               className="button button--outline button--add go-back-btn">
-              <img src={arrowLeft} alt="back" />
+              <img src={arrowLeft} alt="back"/>
               <span>Вернуться назад</span>
             </Link>
             <button className="button pay-btn">

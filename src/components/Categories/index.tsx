@@ -1,9 +1,13 @@
-import React from 'react'
+import { FC } from 'react'
 import './styles.scss'
 
-const Categories = ({activeCategory, onChangeCategory}) => {
+type PropsType = {
+  activeCategory: number
+  onChangeCategory: any
+}
 
-  const cotegories = [
+const Categories: FC<PropsType> = ({ activeCategory, onChangeCategory }) => {
+  const cotegories: string[] = [
     'Все',
     'Мясные',
     'Вегетарианская',
@@ -19,8 +23,9 @@ const Categories = ({activeCategory, onChangeCategory}) => {
           {cotegories.map((cotegory, i) => (
             <li
               key={i}
-              onClick={() =>  onChangeCategory(i)}
-              className={activeCategory === i ? 'active' : ''}>
+              onClick={() => onChangeCategory(i)}
+              className={activeCategory === i ? 'active' : ''}
+            >
               {cotegory}
             </li>
           ))}

@@ -1,6 +1,8 @@
 .pizza {
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  width: 900px;
   img {
     width: 300px;
     height: 300px;
@@ -33,4 +35,12 @@
     background-color: #fe5f1e;
     transition: 0.3s;
   }
+}
+
+.loading {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 305px;
+  font-size: 20px;
 }

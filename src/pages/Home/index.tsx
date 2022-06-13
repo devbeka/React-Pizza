@@ -1,21 +1,20 @@
-import React, { useEffect, useContext } from 'react'
+import { useEffect, FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Categories from '../../components/Categories'
-import Sort from '../../components//Sort'
-import PizzaBlock from '../../components//Pizza/PizzaBlock'
-import Skeleton from '../../components//Pizza/PizzaBlock/skeleton'
+import Sort from '../../components/Sort'
+import PizzaBlock from '../../components/PizzaBlock'
+import Skeleton from '../../components/PizzaBlock/skeleton'
 import { changeCategory, selectFilter } from '../../redux/slices/filterSlice'
 import { fetchPizzas, selectPizzaData } from '../../redux/slices/pizzaSlice'
-
 import './styles.scss'
 
-const Home = () => {
+const Home: FC = () => {
   const dispatch = useDispatch()
   const { pizzas, status } = useSelector(selectPizzaData)
   const { category, sort, searchPizza } = useSelector(selectFilter)
   const sortType = sort.sortProperty
 
-  const onChangeCategory = (i) => {
+  const onChangeCategory = (i: number) => {
     dispatch(changeCategory(i))
   }
 
@@ -26,6 +25,7 @@ const Home = () => {
     const search = searchPizza ? `&search=${searchPizza}` : ''
 
     dispatch(
+      // @ts-ignore
       fetchPizzas({
         sortBy,
         order,
@@ -39,7 +39,7 @@ const Home = () => {
     getPizzas()
   }, [category, sortType, searchPizza])
 
-  const pizzaList = pizzas.map((pizza) => (
+  const pizzaList = pizzas.map((pizza: any) => (
     <PizzaBlock key={pizza.id} {...pizza} />
   ))
   const skeleton = [...new Array(6)].map((_, index) => <Skeleton key={index} />)
@@ -49,8 +49,7 @@ const Home = () => {
       <div className="content__top">
         <Categories
           activeCategory={category}
-          onChangeCategory={onChangeCategory}
-        />
+          onChangeCategory={onChangeCategory}/>
         <Sort />
       </div>
       <h2 className="content__title">Все пиццы</h2>

@@ -1,19 +1,27 @@
-import React, { useState } from 'react'
+import { useState, FC } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { addPizza, selectCartPizzaById } from '../../../redux/slices/cartSlice'
+import { addPizza, selectCartPizzaById } from '../../redux/slices/cartSlice'
 import './styles.scss'
 
 const typeNames = ['тонкое', 'традиционное']
 
-const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }) => {
+type PizzaPropsType = {
+  name: string
+  id: string
+  imageUrl: string
+  price: number
+  types: number[]
+  sizes: number[]
+}
+
+const PizzaBlock: FC<PizzaPropsType> = ({ id, name, price, imageUrl, sizes, types }) => {
   const dispatch = useDispatch()
   const cartItem = useSelector(selectCartPizzaById(id))
 
   const [activeType, setActiveType] = useState(0)
   const [activeSize, setActiveSize] = useState(0)
 
-  const [activeModal, setActiveModal] = useState(false)
 
   const addedCount = cartItem ? cartItem.count : 0
 
@@ -42,8 +50,7 @@ const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }) => {
               <li
                 onClick={() => setActiveType(typeI)}
                 className={activeType === typeI ? 'active' : ''}
-                key={typeI}
-              >
+                key={typeI} >
                 {typeNames[typeI]}
               </li>
             ))}
@@ -53,8 +60,7 @@ const PizzaBlock = ({ id, name, price, imageUrl, sizes, types }) => {
               <li
                 onClick={() => setActiveSize(i)}
                 className={activeSize === i ? 'active' : ''}
-                key={size}
-              >
+                key={size}>
                 {size} см.
               </li>
             ))}

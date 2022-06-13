@@ -1,11 +1,20 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { FC } from 'react'
+import { useDispatch } from 'react-redux'
 import { addPizza, minusPizza, removePizza } from '../../redux/slices/cartSlice'
 
-const CartItem = ({ name, id, imageUrl, price, count, type, size }) => {
+type PropsType = {
+  name: string
+  id: string
+  imageUrl: string
+  type: string
+  price: number
+  count: number
+  size: number
+}
+
+const CartItem: FC<PropsType> = ({ name, id, imageUrl, price, count, type, size }) => {
   const dispatch = useDispatch()
 
-  const total = useSelector((state) => state.cartSlice.total)
 
   const onClickPlus = () => {
     dispatch(addPizza({ id }))
@@ -26,9 +35,7 @@ const CartItem = ({ name, id, imageUrl, price, count, type, size }) => {
       </div>
       <div className="cart__item-info">
         <h3>{name}</h3>
-        <p>
-          {type}, {size} см.
-        </p>
+        <p> {type}, {size} см.</p>
       </div>
       <div className="cart__item-count">
         <button
