@@ -25,6 +25,7 @@ const cartSlice = createSlice({
     },
     removePizza: (state, action) => {
       state.pizzas = state.pizzas.filter((pizza) => pizza.id !== action.payload)
+      
     },
     minusPizza: (state, action) => {
       const findPizza = state.pizzas.find(

@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeSort, selectSort } from '../../redux/slices/filterSlice'
 import './styles.scss'
 
- export const sorts = [
+type SortType = {
+  name: string
+  sortProperty: string
+}
+
+export const sorts: SortType[] = [
   { name: 'популярности', sortProperty: 'rating' },
   { name: 'убыванию цены', sortProperty: 'price' },
   { name: 'возрастанию цены', sortProperty: '-price' },
@@ -17,7 +22,7 @@ const Sort = () => {
 
   const [visible, setVisible] = useState(false)
 
-  const onClickItem = (sort) => {
+  const onClickItem = (sort: SortType) => {
     dispatch(changeSort(sort))
   }
   const onToggleVisible = () => {
@@ -48,8 +53,11 @@ const Sort = () => {
             {sorts.map((sort, i) => (
               <li
                 onClick={() => onClickItem(sort)}
-                className={sort.sortProperty === sort.sortProperty ? 'active' : ''}
-                key={i}>
+                className={
+                  sort.sortProperty === sort.sortProperty ? 'active' : ''
+                }
+                key={i}
+              >
                 {sort.name}
               </li>
             ))}
