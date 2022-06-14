@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, FC } from 'react'
+import { useCallback, useRef, useState, FC, ChangeEvent } from 'react'
 import debounce from 'lodash.debounce'
 import search from '../../assets/img/search-icon.svg'
 import clear from '../../assets/img/clear-icon.svg'
@@ -9,10 +9,11 @@ import { setSearchPizza } from '../../redux/slices/filterSlice'
 const Search: FC = () => {
   const dispatch = useDispatch()
 
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState<string>('')
   const inputRef = useRef<HTMLInputElement>(null)
 
   const onClickClear = () => {
+    dispatch(setSearchPizza(''))
     setValue('')
     inputRef.current?.focus()
   }
@@ -24,7 +25,7 @@ const Search: FC = () => {
     []
   )
 
-  const onChangeInput = (event: any) => {
+  const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
     updateSearchValue(event.target.value)
   }

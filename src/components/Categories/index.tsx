@@ -3,7 +3,7 @@ import './styles.scss'
 
 type PropsType = {
   activeCategory: number
-  onChangeCategory: any
+  onChangeCategory: (i: number) => void
 }
 
 const Categories: FC<PropsType> = ({ activeCategory, onChangeCategory }) => {
@@ -24,8 +24,7 @@ const Categories: FC<PropsType> = ({ activeCategory, onChangeCategory }) => {
             <li
               key={i}
               onClick={() => onChangeCategory(i)}
-              className={activeCategory === i ? 'active' : ''}
-            >
+              className={activeCategory === i ? 'active' : ''} >
               {cotegory}
             </li>
           ))}
