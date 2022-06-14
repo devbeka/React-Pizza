@@ -13,7 +13,7 @@ const CartEmpty: FC = () => {
           <br />
           Для того, чтобы добавить пиццу, перейди на главную страницу.
         </p>
-        <img src={cartEmpty} alt="Empty cart" />
+        <img src={cartEmpty} alt="Empty cart"/>
         <Link to="/" className="button button--black">
           <span>Вернуться назад</span>
         </Link>
