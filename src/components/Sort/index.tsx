@@ -53,8 +53,11 @@ const Sort = () => {
             {sorts.map((sort, i) => (
               <li
                 onClick={() => onClickItem(sort)}
-                className={sort.sortProperty === sort.sortProperty ? 'active' : ''}
-                key={i}>
+                className={
+                  sort.sortProperty === sort.sortProperty ? 'active' : ''
+                }
+                key={i}
+              >
                 {sort.name}
               </li>
             ))}
