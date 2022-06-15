@@ -22,7 +22,7 @@ const Sort = () => {
 
   const [visible, setVisible] = useState(false)
 
-  const onClickItem = (sort: SortType) => {
+  const onClickItem = (sort: any) => {
     dispatch(changeSort(sort))
   }
   const onToggleVisible = () => {
@@ -56,8 +56,7 @@ const Sort = () => {
                 className={
                   sort.sortProperty === sort.sortProperty ? 'active' : ''
                 }
-                key={i}
-              >
+                key={i}>
                 {sort.name}
               </li>
             ))}

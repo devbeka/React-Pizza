@@ -5,17 +5,16 @@ type PropsType = {
   activeCategory: number
   onChangeCategory: (i: number) => void
 }
+const cotegories: string[] = [
+  'Все',
+  'Мясные',
+  'Вегетарианская',
+  'Гриль',
+  'Острые',
+  'Закрытые',
+]
 
 const Categories: FC<PropsType> = ({ activeCategory, onChangeCategory }) => {
-  const cotegories: string[] = [
-    'Все',
-    'Мясные',
-    'Вегетарианская',
-    'Гриль',
-    'Острые',
-    'Закрытые',
-  ]
-
   return (
     <div>
       <div className="categories">
