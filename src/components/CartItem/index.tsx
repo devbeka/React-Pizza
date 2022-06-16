@@ -20,9 +20,7 @@ const CartItem: FC<PropsType> = ({ name, id, imageUrl, price, count, type, size 
     dispatch(addPizza({ id } as PizzasType))
   }
   const onClickMinus = () => {
-    if (count > 1) {
       dispatch(minusPizza(id))
-    }
   }
   const onClickRemove = () => {
     dispatch(removePizza(id))
@@ -39,6 +37,7 @@ const CartItem: FC<PropsType> = ({ name, id, imageUrl, price, count, type, size 
       </div>
       <div className="cart__item-count">
         <button
+          disabled={count === 1}
           onClick={onClickMinus}
           className="button button--outline button--circle cart__item-count-minus"
         >
@@ -60,7 +59,7 @@ const CartItem: FC<PropsType> = ({ name, id, imageUrl, price, count, type, size 
           </svg>
         </button>
         <b>{count}</b>
-        <div
+        <button
           onClick={onClickPlus}
           className="button button--outline button--circle cart__item-count-plus"
         >
@@ -80,7 +79,7 @@ const CartItem: FC<PropsType> = ({ name, id, imageUrl, price, count, type, size 
               fill="#EB5A1E"
             />
           </svg>
-        </div>
+        </button>
       </div>
       <div className="cart__item-price">
         <b>{price * count} ₽</b>

@@ -2,12 +2,14 @@ import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectCart } from '../../redux/slices/cartSlice'
+import { useLocation } from 'react-router-dom'
 import Search from '../Search'
 import pizzaLogo from '../../assets/img/pizza-logo.svg'
 import './styles.scss'
 
 const Header: FC = () => {
   const { pizzas, total } = useSelector(selectCart)
+  const location = useLocation();
 
   const count = pizzas.reduce((sum: number, pizza: any) => sum + pizza.count, 0)
 
@@ -23,7 +25,8 @@ const Header: FC = () => {
             </div>
           </div>
         </Link>
-        <Search />
+        {location.pathname !== '/cart' && <Search />}
+
         <div className="header__cart">
           <Link to="/cart" className="button button--cart">
             <span>{total} ₽</span>
