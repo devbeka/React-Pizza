@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeSort, selectSort } from '../../redux/slices/filterSlice'
+import { changeSort, selectSort } from '../../store/slices/filterSlice'
 import './styles.scss'
 
 type SortType = {
@@ -53,9 +53,7 @@ const Sort = () => {
             {sorts.map((sort, i) => (
               <li
                 onClick={() => onClickItem(sort)}
-                className={
-                  sort.sortProperty === sort.sortProperty ? 'active' : ''
-                }
+                className={sort.sortProperty === sort.sortProperty ? 'active' : ''}
                 key={i}>
                 {sort.name}
               </li>

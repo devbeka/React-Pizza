@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useDispatch } from 'react-redux'
-import { addPizza, minusPizza, PizzasType, removePizza } from '../../redux/slices/cartSlice'
+import { addPizza, minusPizza, PizzasType, removePizza } from '../../store/slices/cartSlice'
 
 type PropsType = {
   name: string

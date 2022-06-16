@@ -4,10 +4,10 @@ import Categories from '../../components/Categories'
 import Sort from '../../components/Sort'
 import PizzaBlock from '../../components/PizzaBlock'
 import Skeleton from '../../components/PizzaBlock/skeleton'
-import { changeCategory, selectFilter } from '../../redux/slices/filterSlice'
-import { fetchPizzas, selectPizzaData } from '../../redux/slices/pizzaSlice'
+import { changeCategory, selectFilter } from '../../store/slices/filterSlice'
+import { fetchPizzas, selectPizzaData } from '../../store/slices/pizzaSlice'
 import './styles.scss'
-import { useAppDispacth } from '../../redux/store'
+import { useAppDispacth } from '../../store'
 
 const Home: FC = () => {
   const dispatch = useAppDispacth()

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Rootsate } from '../store'
+import { Rootsate } from '..'
 
 type SortType = {
   name: string

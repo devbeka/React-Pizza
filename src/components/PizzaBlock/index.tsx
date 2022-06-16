@@ -1,7 +1,7 @@
 import { useState, FC } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { addPizza, PizzasType, selectCartPizzaById } from '../../redux/slices/cartSlice'
+import { addPizza, PizzasType, selectCartPizzaById } from '../../store/slices/cartSlice'
 import './styles.scss'
 
 const typeNames = ['тонкое', 'традиционное']

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { Rootsate } from '../store'
+import { Rootsate } from '..'
 
 
 export const fetchPizzas = createAsyncThunk<PizzaType[], Record<string, string>>(

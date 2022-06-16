@@ -1,5 +1,7 @@
+import { getCartFromLS } from './../../utils/getCartFromLS'
+import { calcTotalPrice } from './../../utils/calcTotalPrice'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Rootsate } from '../store'
+import { Rootsate } from '..'
 
 export type PizzasType = {
   name: string
@@ -15,10 +17,10 @@ interface CartSliceType {
   total: number
   pizzas: PizzasType[]
 }
-
+const { pizzas, total } = getCartFromLS()
 const initialState: CartSliceType = {
-  pizzas: [],
-  total: 0,
+  pizzas,
+  total,
 }
 
 const cartSlice = createSlice({
@@ -35,9 +37,7 @@ const cartSlice = createSlice({
         state.pizzas.push({ ...action.payload, count: 1 })
       }
 
-      state.total = state.pizzas.reduce((sum, pizza) => {
-        return pizza.price * pizza.count + sum
-      }, 0)
+      state.total = calcTotalPrice(state.pizzas)
     },
     removePizza: (state, action: PayloadAction<string>) => {
       state.pizzas = state.pizzas.filter((pizza) => pizza.id !== action.payload)
