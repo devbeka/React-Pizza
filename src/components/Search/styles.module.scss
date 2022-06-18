@@ -1,13 +1,16 @@
 .root {
+  width: 400px;
   position: relative;
-  left: -100px;
+  margin: 10px;
+  @media (max-width: 440px) {
+    max-width: 300px;
+  }
 }
-
 .input {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 12px 20px;
   padding-left: 42px;
-  width: 400px;
+  width: 100%;
   border-radius: 10px;
   font-size: 14px;
 

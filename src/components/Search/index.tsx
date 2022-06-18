@@ -33,14 +33,14 @@ const Search: FC = () => {
   return (
     <div className={styles.root}>
       <img className={styles.searchIcon} src={search} alt="search icon" />
-      <input
-        ref={inputRef}
-        value={value}
-        onChange={onChangeInput}
-        className={styles.input}
-        placeholder="Поиск пиццы..."
-        type="text"
-      />
+        <input
+          ref={inputRef}
+          value={value}
+          onChange={onChangeInput}
+          className={styles.input}
+          placeholder="Поиск пиццы..."
+          type="text"
+        />
       {value && (
         <img
           onClick={onClickClear}
