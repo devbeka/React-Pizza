@@ -6,8 +6,9 @@ import PizzaBlock from '../../components/PizzaBlock'
 import Skeleton from '../../components/PizzaBlock/skeleton'
 import { changeCategory, selectFilter } from '../../store/slices/filterSlice'
 import { fetchPizzas, selectPizzaData } from '../../store/slices/pizzaSlice'
-import './styles.scss'
 import { useAppDispacth } from '../../store'
+import './styles.scss'
+
 
 const Home: FC = () => {
   const dispatch = useAppDispacth()

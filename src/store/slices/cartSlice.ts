@@ -1,7 +1,7 @@
 import { getCartFromLS } from './../../utils/getCartFromLS'
 import { calcTotalPrice } from './../../utils/calcTotalPrice'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Rootsate } from '..'
+import { Rootsate } from '../index'
 
 export type PizzasType = {
   name: string
