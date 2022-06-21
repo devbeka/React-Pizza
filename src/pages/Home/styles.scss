@@ -1,6 +1,5 @@
 @import '../../assets/scss/variables';
 
-
 .content {
   padding: 40px 0;
   &__title {
@@ -12,7 +11,7 @@
   &__items {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     grid-column-gap: 11px;
 
     @media (max-width: 1400px) {
