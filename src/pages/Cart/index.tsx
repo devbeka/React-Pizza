@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import CartItem from '../../components/CartItem'
@@ -8,11 +8,16 @@ import arrowLeft from '../../assets/img/arrow-left.svg'
 import clear from '../../assets/img/trash-icon.svg'
 import cart from '../../assets/img/cart.svg'
 import './styles.scss'
+import Modal from '../../components/Modal'
 
 const Cart: FC = () => {
   const dispatch = useDispatch()
   const { total, pizzas } = useSelector(selectCart)
   const count = pizzas.reduce((sum: number, pizza: any) => sum + pizza.count, 0)
+
+  const [modalActive, setModalActive] = useState(false)
+
+  
 
   const onClickClear = () => {
     dispatch(clearPizzas())
@@ -23,6 +28,7 @@ const Cart: FC = () => {
   }
 
   return (
+    <>
     <div className="container container--cart">
       <div className="cart">
         <div className="cart__top">
@@ -56,13 +62,15 @@ const Cart: FC = () => {
               <img src={arrowLeft} alt="back"/>
               <span>Вернуться назад</span>
             </Link>
-            <button className="button pay-btn">
-              <span>Оплатить сейчас</span>
+            <button onClick={() => setModalActive(true)} className="button pay-btn">
+              <span>Оформить заказа</span>
             </button>
+            <Modal active={modalActive} setActive={setModalActive}/>
           </div>
         </div>
       </div>
     </div>
+    </>
   )
 }
 

@@ -1,0 +1,58 @@
+.modal {
+  padding: 20px;
+  height: 100hv;
+  width: 100hw;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scale(0);
+
+  &__content {
+    padding: 40px 20px;
+    border-radius: 15px;
+    background-color: #fff;
+    max-width: 600px;
+  }
+
+  &__form {
+    // text-align: center;
+    input {
+      width: 100%;
+      height: 40px;
+      border-radius: 15px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+    }
+
+    select {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      margin-left: 10px;
+    }
+
+    div {
+      text-align: end;
+      margin-top: 10px;
+      button {
+        background-color: #fe5f1e;
+        color: #fff;
+        padding: 10px;
+        border-radius: 30px;
+        font-size: 14px;
+        border: none;
+      }
+    }
+  }
+}
+
+.modal.active {
+  transform: scale(1);
+}
